@@ -2,17 +2,27 @@
 
     app.controller("CreateContactController", CreateContactController);
 
-    CreateContactController.$inject = ["ContactsService"];
+    CreateContactController.$inject = ["$log", "ContactsService"];
 
-    function CreateContactController(contactsService) {
+    function CreateContactController($log, contactsService) {
         var vm = this;
-        vm.NewContact = {};
+        vm.CreateContact = createContact;
         init();
 
         function init() {
-            vm.NewContact.firstName = "Joe";
-            vm.NewContact.lastName = "Shmoe";
-            vm.NewContact.phone = "111-555-9999";
+            vm.NewContact = getBlankContact();
+        }
+
+        function getBlankContact() {
+            return {firstName: "", lastName: "", phone: ""};
+        }
+
+        function createContact() {
+            contactsService.CreateContact(vm.NewContact).then(function () {
+                vm.NewContact = getBlankContact();
+            }, function (err) {
+                $log.error(err);
+            });
         }
     }
 })(window.angular.module("contactsApp"));
