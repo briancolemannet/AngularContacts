@@ -11,7 +11,11 @@
                 controller: "ContactListController",
                 controllerAs: "vm"
             })
-            .when("/create", {})
+            .when("/create", {
+                templateUrl: "/app/contacts/create-contact.html",
+                controller: "CreateContactController",
+                controllerAs: "vm"
+            })
             .otherwise({redirectTo: "/"});
     }
 })(window.angular.module("contactsApp"));
