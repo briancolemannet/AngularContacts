@@ -1,0 +1,16 @@
+<table class="table table-striped table-hover">
+    <thead>
+    <th>#</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Phone</th>
+    </thead>
+    <tbody>
+    <tr ng-repeat="contact in vm.Contacts">
+        <td>{{ contact.id }}</td>
+        <td>{{ contact.firstName }}</td>
+        <td>{{ contact.lastName }}</td>
+        <td>{{ contact.phone }}</td>
+    </tr>
+    </tbody>
+</table>
