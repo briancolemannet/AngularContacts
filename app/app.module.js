@@ -1,5 +1,5 @@
 (function (angular) {
 
-    angular.module("contactsApp", []);
+    angular.module("contactsApp", ["ngRoute"]);
 
 })(window.angular);
