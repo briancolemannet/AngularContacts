@@ -9,8 +9,10 @@
         vm.Contacts = [];
         init();
 
-        function init(){
-            vm.Contacts = contactsService.GetContacts();
+        function init() {
+            contactsService.GetContacts().then(function (data) {
+                vm.Contacts = data;
+            });
         }
     }
 })(window.angular.module("contactsApp"));
